@@ -87,8 +87,9 @@ return packer.startup(function(use)
   -- Treesitter
   use({ "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } })
   use({ "nvim-telescope/telescope-file-browser.nvim" })
-  use({ "mrjones2014/nvim-ts-rainbow" })
+use({ "mrjones2014/nvim-ts-rainbow" })
 
+  use({"mg979/vim-visual-multi"})
  -- file
   use({
     "nvim-tree/nvim-tree.lua",

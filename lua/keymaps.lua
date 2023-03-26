@@ -25,10 +25,19 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- 右端・左端に移動
-keymap("n", "<S-h>", "0", opts)
-keymap("v", "<S-h>", "0", opts)
+keymap("n", "<S-h>", "1", opts)
+keymap("v", "<S-h>", "1", opts)
 keymap("n", "<S-l>", "$", opts)
 keymap("v", "<S-l>", "$", opts)
+
+-- Option + J (∆) / k (˚) で行を移動する
+keymap("n", "∆", ":m .+1<CR>==", opts)
+keymap("n", "˚", ":m .-2<CR>==", opts)
+keymap("i", "∆", "<Esc>:m .+1<CR>==gi", opts)
+keymap("i", "˚", "<Esc>:m .-2<CR>==gi", opts)
+keymap("v", "∆", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "˚", ":m '<-2<CR>gv=gv", opts)
+
 
 --最新の状態にする
 keymap("n", "<C-s>", ":update<Return>", opts)
