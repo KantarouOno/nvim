@@ -24,9 +24,9 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
--- 右端・左端に移動
-keymap("n", "<S-h>", "1", opts)
-keymap("v", "<S-h>", "1", opts)
+-- Shift + H/L で右端・左端に移動
+keymap("n", "<S-h>", "^", opts)
+keymap("v", "<S-h>", "^", opts)
 keymap("n", "<S-l>", "$", opts)
 keymap("v", "<S-l>", "$", opts)
 
@@ -39,9 +39,16 @@ keymap("v", "∆", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "˚", ":m '<-2<CR>gv=gv", opts)
 
 
+-- Option + B (∫)でファイルツリーを表示/非表示
+keymap("n", "∫", ":NvimTreeToggle<Return>", opts)
+
+-- Telescope/Fzf・Filer
+keymap("n", "fb", ":Telescope file_browser<Return>", opts)
+keymap("n", "ff", ":Telescope find_files<Return>", opts)
+
 --最新の状態にする
 keymap("n", "<C-s>", ":update<Return>", opts)
-
+-- カーソルがあった位置に戻る・進む
 keymap("n", "<C-p>", ":bprevious<Return>", opts)
 keymap("n", "<C-n>", ":bnext<Return>", opts)
 keymap("n", "<C-w>", ":bd<Return>", opts)
@@ -69,11 +76,6 @@ keymap("n", "D", "\"_D", opts)
 
 --単語削除
 keymap("n", "dw", 'vb"_d', opts)
-
--- 行の端に行く
-keymap("n", "<Space>h", "^", opts)
-keymap("n", "<Space>l", "$", opts)
-
 -- ;でコマンド入力( ;と:を入れ替)
 keymap("n", ";", ":", opts)
 
@@ -100,9 +102,5 @@ keymap("v", "v", "$h", opts)
 -- 0番レジスタを使いやすくした
 keymap("v", "<C-p>", '"0p', opts)
 
-keymap("n", "<sf>", ":NvimTreeToggle<Return>", opts)
-
-keymap("n", "fb", ":Telescope file_browser<Return>", opts)
-keymap("n", "ff", ":Telescope find_files<Return>", opts)
 keymap("n", "<Esc><Esc>", ":<C-u>set nohlsearch<Return>", opts)
 
